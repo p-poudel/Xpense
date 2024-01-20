@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:xpense/reusuable/custom_button.dart';
+import 'package:xpense/views/auth_screens/login_screen.dart';
+import 'package:xpense/views/auth_screens/signup_screen.dart';
 
-class onboarding extends StatefulWidget {
-  const onboarding({super.key});
+class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({super.key});
 
   @override
-  State<onboarding> createState() => _onboardingState();
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
 }
 
-class _onboardingState extends State<onboarding> {
+class _OnBoardingPageState extends State<OnBoardingPage> {
   final controller = PageController();
   @override
   void dispose() {
@@ -43,20 +46,21 @@ class _onboardingState extends State<onboarding> {
               ],
             ),
           ),
-          Container(
-              child: SmoothPageIndicator(controller: controller, count: 3)),
-          SizedBox(
+          SmoothPageIndicator(controller: controller, count: 3),
+          const SizedBox(
             height: 40,
           ),
           button(
-              color1: Color(0xff7f3dff),
+              onPressed: ()=>Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const SignupScreen(),)),
+              color1: const Color(0xff7f3dff),
               text: "Sign Up",
-              color2: Color(0xfffcfcfc)),
+              color2: const Color(0xfffcfcfc)),
           button(
-              color1: Color(0xffeee5ff),
+              onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen(),)),
+              color1: const Color(0xffeee5ff),
               text: "Login",
-              color2: Color(0xff7f3dff)),
-          SizedBox(
+              color2: const Color(0xff7f3dff)),
+          const SizedBox(
             height: 25,
           ),
         ],
@@ -65,45 +69,25 @@ class _onboardingState extends State<onboarding> {
   }
 
   Widget content({image1, text1, text2}) {
-    return Container(
-        child: Column(children: [
-      SizedBox(height: 100),
+    return Column(children: [
+      const SizedBox(height: 100),
       Image(image: AssetImage(image1)),
-      Container(
-        width: 287,
-        height: 150,
-        child: Column(
-          children: [
-            Text(
-              text1,
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Text(text2, style: TextStyle(fontSize: 16)),
-          ],
+      SizedBox(
+    width: 287,
+    height: 150,
+    child: Column(
+      children: [
+        Text(
+          text1,
+          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
         ),
+        const SizedBox(
+          height: 12,
+        ),
+        Text(text2, style: const TextStyle(fontSize: 16)),
+      ],
+    ),
       )
-    ]));
-  }
-
-  Widget button({color1, text, color2}) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 10, left: 7, right: 7),
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-          onPressed: () {},
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(color1),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(11))),
-          ),
-          child: Text(
-            text,
-            style: TextStyle(color: color2, fontSize: 18),
-          )),
-    );
+    ]);
   }
 }

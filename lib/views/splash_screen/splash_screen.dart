@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:xpense/views/main_screens/home_page.dart';
+import 'package:xpense/constants/color_const.dart';
+import 'package:xpense/constants/text_const.dart';
 import 'package:xpense/views/on_boarding_pages/page1.dart';
 
-class splashScreen extends StatefulWidget {
-  const splashScreen({super.key});
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<splashScreen> createState() => _splashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _splashScreenState extends State<splashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => onboarding()));
+          MaterialPageRoute(builder: (context) => const OnBoardingPage()));
     });
   }
 
@@ -35,22 +37,19 @@ class _splashScreenState extends State<splashScreen>
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xff7f3dff), Colors.purple],
+            colors: [gradientColor1, gradientColor2],
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "Xpense",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 56.0,
-                  fontWeight: FontWeight.w600),
+              style: textConst
             )
           ],
         ),
