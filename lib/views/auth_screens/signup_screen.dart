@@ -23,7 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(context, "Sign Up"),
+      appBar: customAppBar(context, "Sign Up"),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -33,8 +33,10 @@ class _SignupScreenState extends State<SignupScreen> {
             CustomTextField(
                 isVisible: true, title: "Email", controller: nameController),
             CustomTextField(
-                isVisible: false, title: "Password", controller: nameController),
-      
+                isVisible: false,
+                title: "Password",
+                controller: nameController),
+
             // check box
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -65,7 +67,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Text(
                       "and Privacy Policy",
                       style: TextStyle(
-                          color: Colors.deepPurple, fontWeight: FontWeight.w500),
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.w500),
                     ))
                   ],
                 )
@@ -88,20 +91,28 @@ class _SignupScreenState extends State<SignupScreen> {
                 color1: Colors.white,
                 text: "Sign Up with Google",
                 color2: Colors.black),
-      
+
             const SizedBox(height: 19),
             // already have an account?
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Already have an account?", style: TextStyle(color: Color(0xFF91919F), fontSize: 16),),
-                TextButton(onPressed: (){
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen(),));
-                }, child:  const Text(
-                  "Login",
-                  style: TextStyle(
-                      decoration: TextDecoration.underline, color: Color(0xFF7F3DFF)),
-                ))
+                const Text(
+                  "Already have an account?",
+                  style: TextStyle(color: Color(0xFF91919F), fontSize: 16),
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ));
+                    },
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Color(0xFF7F3DFF)),
+                    ))
               ],
             )
           ],
