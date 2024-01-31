@@ -3,6 +3,7 @@ import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/reusuable/custom_textfield.dart';
 import 'package:xpense/views/auth_screens/login_screen.dart';
+import 'package:xpense/views/auth_screens/verify_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -77,7 +78,7 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 20),
             // signup button
             button(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => VerifyScreen(email: "hello123@gmail.com"),)),
                 color1: const Color(0xff7f3dff),
                 text: "Sign Up",
                 color2: const Color(0xfffcfcfc)),

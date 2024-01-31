@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/reusuable/custom_textfield.dart';
+import 'package:xpense/views/auth_screens/forget_password_screen.dart';
 import 'package:xpense/views/auth_screens/signup_screen.dart';
 import 'package:xpense/views/auth_screens/verify_screen.dart';
 
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
           button(
               onPressed: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const VerifyScreen(email: "test"),
+                  builder: (context) => VerifyScreen(email: "test"),
                 ));
               },
               color1: const Color(0xff7f3dff),
@@ -43,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(height: 20),
           // forget password
           TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ForgetPasswordScreen(),)),
               child: const Text(
                 "Forgot Password?",
                 style: TextStyle(color: Color(0xFF7F3DFF), fontSize: 20),
