@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:xpense/constants/color_const.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
-import 'package:xpense/reusuable/custom_textfield.dart';
 
-class IncomeScreen extends StatelessWidget {
-  IncomeScreen({super.key});
+class ExpenseScreen extends StatelessWidget {
+  ExpenseScreen({super.key});
 
   final TextEditingController controller = TextEditingController();
 
@@ -14,18 +12,18 @@ class IncomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(
         context,
-        "Income",
-        color: const Color(0xff00A86B),
+        "Expense",
+        color: const Color(0xffFD3C4A),
         textColor: Colors.white,
       ),
-      backgroundColor: const Color(0xff00A86B),
+      backgroundColor: const Color(0xffFD3C4A),
       body: Column(
         children: [
           Expanded(
             flex: 2,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              color: const Color(0xff00A86B),
+              color: const Color(0xffFD3C4A),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -56,19 +54,10 @@ class IncomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  CustomTextField(
-                      isVisible: true,
-                      title: "Category",
-                      controller: controller),
-                  CustomTextField(
-                      isVisible: true,
-                      title: "Description",
-                      controller: controller),
+                 
                   const Spacer(),
-                  button(
+                  Button(
                       text: "Continue",
-                      color1: gradientColor1,
-                      color2: Colors.white,
                       onPressed: () {}),
                 ],
               ),
