@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:xpense/constants/color_const.dart';
 
-Widget button({color1, text, color2, onPressed}) {
+Widget Button({text, onPressed}) {
   return Container(
     margin: const EdgeInsets.only(bottom: 10, left: 7, right: 7),
     width: double.infinity,
@@ -8,13 +9,13 @@ Widget button({color1, text, color2, onPressed}) {
     child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(color1),
+          backgroundColor: MaterialStateProperty.all(gradientColor1),
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(11))),
         ),
         child: Text(
           text,
-          style: TextStyle(color: color2, fontSize: 18),
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         )),
   );
 }

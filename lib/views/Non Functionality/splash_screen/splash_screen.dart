@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xpense/constants/color_const.dart';
 import 'package:xpense/constants/text_const.dart';
-import 'package:xpense/views/on_boarding_pages/page1.dart';
-
+import 'package:xpense/views/auth_screens/login_screen.dart';
+import 'package:xpense/views/Non%20Functionality/on_boarding_pages/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,17 +13,27 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>{
+  // decide
+  void decide() async {
+    final prefs = await SharedPreferences.getInstance();
+    final isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
+    Future.delayed(const Duration(seconds: 2), () {
+      isFirstTime
+          ? Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const OnBoardingPage()))
+          : Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const LoginScreen()));
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const OnBoardingPage()));
-    });
+    decide();
   }
 
   @override
@@ -46,12 +57,7 @@ class _SplashScreenState extends State<SplashScreen>
         ),
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Xpense",
-              style: textConst
-            )
-          ],
+          children: [Text("Xpense", style: textConst)],
         ),
       ),
     );

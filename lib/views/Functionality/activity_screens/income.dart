@@ -4,8 +4,8 @@ import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/reusuable/custom_textfield.dart';
 
-class ExpenseScreen extends StatelessWidget {
-  ExpenseScreen({super.key});
+class IncomeScreen extends StatelessWidget {
+  IncomeScreen({super.key});
 
   final TextEditingController controller = TextEditingController();
 
@@ -14,18 +14,18 @@ class ExpenseScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(
         context,
-        "Expense",
-        color: const Color(0xffFD3C4A),
+        "Income",
+        color: const Color(0xff00A86B),
         textColor: Colors.white,
       ),
-      backgroundColor: const Color(0xffFD3C4A),
+      backgroundColor: const Color(0xff00A86B),
       body: Column(
         children: [
           Expanded(
             flex: 2,
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              color: const Color(0xffFD3C4A),
+              color: const Color(0xff00A86B),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -56,19 +56,10 @@ class ExpenseScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  CustomTextField(
-                      isVisible: true,
-                      title: "Category",
-                      controller: controller),
-                  CustomTextField(
-                      isVisible: true,
-                      title: "Description",
-                      controller: controller),
+                 
                   const Spacer(),
-                  button(
+                  Button(
                       text: "Continue",
-                      color1: gradientColor1,
-                      color2: Colors.white,
                       onPressed: () {}),
                 ],
               ),
