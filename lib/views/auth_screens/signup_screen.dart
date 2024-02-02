@@ -32,7 +32,7 @@ class _SignupScreenState extends State<SignupScreen> {
       String email = _emailController.text.trim();
       String password = _passwordController.text;
 
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
+      Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => VerifyScreen(email: email),
       ));
     }

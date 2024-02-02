@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xpense/constants/color_const.dart';
 import 'package:xpense/constants/text_const.dart';
 import 'package:xpense/views/auth_screens/login_screen.dart';
-import 'package:xpense/views/Non%20Functionality/on_boarding_pages/onboarding.dart';
+import 'package:xpense/views/non_functional_screens/on_boarding_pages/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

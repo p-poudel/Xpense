@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:xpense/reusuable/custom_appbar.dart';
+import 'package:xpense/reusuable/custom_appbar_back..dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/reusuable/custom_codefield.dart';
 import 'package:xpense/views/auth_screens/login_screen.dart';
@@ -36,7 +36,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: customAppBar(context, "Verification"),
+        appBar: customAppBarBack(context, "Verification"),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(

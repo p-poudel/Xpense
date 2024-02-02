@@ -23,6 +23,7 @@ class _addAccountState extends State<addAccount> {
         backgroundColor: gradientColor1,
         appBar: AppBar(
           backgroundColor: gradientColor1,
+          elevation: 0.0,
           leading: Icon(Icons.arrow_back, color: Colors.white),
           title: Center(
               child: Text(

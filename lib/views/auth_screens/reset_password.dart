@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xpense/constants/padding_const.dart';
 import 'package:xpense/constants/text_decoration.dart';
-import 'package:xpense/reusuable/custom_appbar.dart';
+import 'package:xpense/reusuable/custom_appbar_back..dart';
 import 'package:xpense/reusuable/custom_button.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -34,7 +34,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, "Reset Password"),
+      appBar: customAppBarBack(context, "Reset Password"),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(

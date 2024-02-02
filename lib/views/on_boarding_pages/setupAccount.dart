@@ -1,47 +1,35 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:xpense/constants/color_const.dart';
+import 'package:xpense/reusuable/custom_appbar.dart';
+import 'package:xpense/reusuable/custom_button.dart';
+import 'package:xpense/views/on_boarding_pages/addAccount.dart';
+import 'package:xpense/views/non_functional_screens/splash_screen/success_screen.dart';
 
-class setupAccount extends StatelessWidget {
-  const setupAccount({super.key});
+class SetupAccount extends StatelessWidget {
+  const SetupAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            "Let’s setup your account!",
-            style: TextStyle(fontSize: 36),
-          ),
-          SizedBox(height: 16),
-          Text(
-            "Account can be your bank, credit card or your wallet.",
-            style: TextStyle(fontSize: 14.0),
-          ),
-          SizedBox(
-            height: 530,
-          ),
-          Container(
-            width: double.infinity,
-            height: 56,
-            child: ElevatedButton(
-                onPressed: () {}, //Write functionality here
-                style: ButtonStyle(
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12))),
-                    backgroundColor: MaterialStatePropertyAll(gradientColor1)),
-                child: Text(
-                  "Let's go",
-                  style: TextStyle(color: Colors.white),
-                )),
-          )
-        ],
+      appBar: customAppBar(context, ""),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 20),
+        child: Column(
+          children: [
+            const Text(
+              "Let’s setup your account!",
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 30,),
+            const Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: const Text("Account can be your bank, credit card or your wallet.",style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),),
+            ),
+            const Spacer(),
+            Button(onPressed: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SuccessSplashScreen(),));
+            }, text: 'Let\'s go')
+          ],
+        ),
       ),
     );
   }

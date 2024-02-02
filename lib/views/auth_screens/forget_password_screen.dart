@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:xpense/constants/padding_const.dart';
 import 'package:xpense/constants/text_decoration.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
+import 'package:xpense/reusuable/custom_appbar_back..dart';
 import 'package:xpense/reusuable/custom_button.dart';
+import 'package:xpense/views/non_functional_screens/splash_screen/loading_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -20,6 +22,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   void _validateEmail(){
     if (_formKey.currentState!.validate()) {
         String email = _emailController.text.trim();
+
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ForgetPasswordLoadingScreen(email: email,),));
     }
   }
 
@@ -33,7 +37,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, "Forget Password"),
+      appBar: customAppBarBack(context, "Forget Password"),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(

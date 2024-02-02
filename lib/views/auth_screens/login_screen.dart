@@ -6,7 +6,7 @@ import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/views/auth_screens/forget_password_screen.dart';
 import 'package:xpense/views/auth_screens/signup_screen.dart';
-import 'package:xpense/views/auth_screens/verify_screen.dart';
+import 'package:xpense/views/on_boarding_pages/setupAccount.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       String password = _passwordController.text;
 
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => VerifyScreen(email: email),
+        builder: (context) => SetupAccount(),
       ));
     }
   }
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // forget password
                 TextButton(
                     onPressed: () =>
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => ForgetPasswordScreen(),
                         )),
                     child: const Text(

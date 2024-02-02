@@ -4,9 +4,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/views/auth_screens/login_screen.dart';
 import 'package:xpense/views/auth_screens/signup_screen.dart';
-import 'package:xpense/views/Non%20Functionality/on_boarding_pages/page1.dart';
-import 'package:xpense/views/Non%20Functionality/on_boarding_pages/page2.dart';
-import 'package:xpense/views/Non%20Functionality/on_boarding_pages/page3.dart';
+import 'package:xpense/views/non_functional_screens/on_boarding_pages/page1.dart';
+import 'package:xpense/views/non_functional_screens/on_boarding_pages/page2.dart';
+import 'package:xpense/views/non_functional_screens/on_boarding_pages/page3.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
