@@ -1,16 +1,10 @@
-# xpense
+# Xpense
 
-A new Flutter project.
+A Flutter project built to trak and predict your expenses.
 
-## Getting Started
+## UI/UX
 
-This project is a starting point for a Flutter application.
+This project uses modified version community [Figma](https://www.figma.com) UI: [Montra - Expense Tracker UI Kit](https://www.figma.com/community/file/998557875473123405/montra-expense-tracker-ui-kit)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Disclaimer
+This app is in early stage of development. Documentation will be updated/provided from alpha release.
