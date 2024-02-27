@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:xpense/constants/color_const.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
+import 'package:xpense/reusuable/custom_income_expense_style.dart';
 import 'package:xpense/reusuable/custom_textfield.dart';
 
 class IncomeScreen extends StatelessWidget {
@@ -41,20 +42,17 @@ class IncomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Rs. ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 64,
-                        ),
+                        style: IncomeExpenseStyle.customTextStyle,
                       ),
                       Expanded(
                         child: TextField(
                           keyboardType: TextInputType.number,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 64,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: '0',
+                            hintStyle: IncomeExpenseStyle.customTextStyle,
                           ),
+                          style: IncomeExpenseStyle.customTextStyle,
                         ),
                       ),
                     ],
@@ -75,6 +73,7 @@ class IncomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  const CategoryDropdown(),
                   const Spacer(),
                   Button(text: "Continue", onPressed: () {}),
                 ],

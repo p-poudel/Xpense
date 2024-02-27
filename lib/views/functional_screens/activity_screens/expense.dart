@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
+import 'package:xpense/reusuable/custom_income_expense_style.dart';
 
 class ExpenseScreen extends StatelessWidget {
   ExpenseScreen({super.key});
@@ -48,11 +49,12 @@ class ExpenseScreen extends StatelessWidget {
                       Expanded(
                         child: TextField(
                           keyboardType: TextInputType.number,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 64,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: '0',
+                            hintStyle: IncomeExpenseStyle.customTextStyle,
                           ),
+                          style: IncomeExpenseStyle.customTextStyle,
                         ),
                       ),
                     ],
