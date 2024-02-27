@@ -24,18 +24,37 @@ class IncomeScreen extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               color: const Color(0xff00A86B),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("How much?"),
+                  Text(
+                    "How much?",
+                    style: TextStyle(
+                      color: Colors.white54,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
                   Row(
                     children: [
-                      Text("Rs. "),
+                      Text(
+                        "Rs. ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 64,
+                        ),
+                      ),
                       Expanded(
                         child: TextField(
                           keyboardType: TextInputType.number,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 64,
+                          ),
                         ),
                       ),
                     ],
@@ -56,11 +75,8 @@ class IncomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                 
                   const Spacer(),
-                  Button(
-                      text: "Continue",
-                      onPressed: () {}),
+                  Button(text: "Continue", onPressed: () {}),
                 ],
               ),
             ),
