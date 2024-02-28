@@ -22,7 +22,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),

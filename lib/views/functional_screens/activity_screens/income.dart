@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xpense/constants/color_const.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
 import 'package:xpense/reusuable/custom_income_expense_style.dart';
-import 'package:xpense/reusuable/custom_textfield.dart';
 
 class IncomeScreen extends StatelessWidget {
   IncomeScreen({super.key});

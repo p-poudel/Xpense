@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xpense/reusuable/custom_appbar.dart';
 import 'package:xpense/reusuable/custom_button.dart';
-import 'package:xpense/views/on_boarding_pages/addAccount.dart';
 import 'package:xpense/views/non_functional_screens/splash_screen/success_screen.dart';
 
 class SetupAccount extends StatelessWidget {
@@ -21,12 +20,12 @@ class SetupAccount extends StatelessWidget {
             ),
             const SizedBox(height: 30,),
             const Padding(
-              padding: const EdgeInsets.only(right: 10.0),
-              child: const Text("Account can be your bank, credit card or your wallet.",style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),),
+              padding: EdgeInsets.only(right: 10.0),
+              child: Text("Account can be your bank, credit card or your wallet.",style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),),
             ),
             const Spacer(),
             Button(onPressed: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SuccessSplashScreen(),));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const SuccessSplashScreen(),));
             }, text: 'Let\'s go')
           ],
         ),

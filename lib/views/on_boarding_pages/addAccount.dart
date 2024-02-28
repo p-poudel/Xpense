@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xpense/constants/color_const.dart';
 
@@ -24,8 +23,8 @@ class _addAccountState extends State<addAccount> {
         appBar: AppBar(
           backgroundColor: gradientColor1,
           elevation: 0.0,
-          leading: Icon(Icons.arrow_back, color: Colors.white),
-          title: Center(
+          leading: const Icon(Icons.arrow_back, color: Colors.white),
+          title: const Center(
               child: Text(
             "Add new account",
             style: TextStyle(color: Colors.white),
@@ -33,7 +32,7 @@ class _addAccountState extends State<addAccount> {
         ),
         body: Stack(
           children: [
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -47,28 +46,28 @@ class _addAccountState extends State<addAccount> {
               ],
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30)),
                 color: Colors.white,
               ),
-              margin: EdgeInsets.only(top: 434),
+              margin: const EdgeInsets.only(top: 434),
               height: 323,
               width: double.infinity,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 52,
                   ),
-                  Container(
+                  const SizedBox(
                     width: 380,
                     child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(), hintText: 'Name'),
                     ),
                   ),
-                  SizedBox(height: 26),
+                  const SizedBox(height: 26),
                   DropdownButton(
                     value: selectedCourseValue,
                     isDense: true,
@@ -76,14 +75,15 @@ class _addAccountState extends State<addAccount> {
                     menuMaxHeight: 350,
                     items: [
                       const DropdownMenuItem(
+                          value: "",
                           child: Text(
                             "Bank",
-                          ),
-                          value: ""),
+                          )),
                       ...dropDownListData.map<DropdownMenuItem<String>>((e) {
                         return DropdownMenuItem(
-                            child: Text(e['title']), value: e['value']);
-                      }).toList(),
+                            value: e['value'],
+                            child: Text(e['title']));
+                      }),
                     ],
                     onChanged: (newValue) {
                       setState(
@@ -94,10 +94,10 @@ class _addAccountState extends State<addAccount> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 93,
                   ),
-                  Container(
+                  SizedBox(
                       width: double.infinity,
                       height: 56,
                       child: ElevatedButton(
@@ -107,8 +107,8 @@ class _addAccountState extends State<addAccount> {
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12))),
                               backgroundColor:
-                                  MaterialStatePropertyAll(gradientColor1)),
-                          child: Text(
+                                  const MaterialStatePropertyAll(gradientColor1)),
+                          child: const Text(
                             "Continue",
                             style: TextStyle(color: Colors.white),
                           ))),

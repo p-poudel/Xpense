@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       String password = _passwordController.text;
 
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => SetupAccount(),
+        builder: (context) => const SetupAccount(),
       ));
     }
   }
@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextButton(
                     onPressed: () =>
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ForgetPasswordScreen(),
+                          builder: (context) => const ForgetPasswordScreen(),
                         )),
                     child: const Text(
                       "Forgot Password?",

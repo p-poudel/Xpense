@@ -15,7 +15,7 @@ class CodeField extends StatelessWidget {
       height: 40,
       width: 40,
       child: TextFormField(
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         controller: codeController,
         onChanged: (value) {
           if (value.length == 1) {
