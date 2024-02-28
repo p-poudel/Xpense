@@ -10,15 +10,17 @@ class SuccessSplashScreen extends StatefulWidget {
 }
 
 class _SuccessSplashScreenState extends State<SuccessSplashScreen> {
+
   @override
   void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()));
+  super.initState();
+  Future.delayed(const Duration(seconds: 2), () {
+    Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const homeScreen()));
+        
     });
-  }
 
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

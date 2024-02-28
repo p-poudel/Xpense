@@ -26,7 +26,7 @@ class ForgetPasswordLoadingScreen extends StatelessWidget {
             ),
             const Spacer(),
             Button(
-                onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen(),)),
+                onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen(),)),
                 text: "Back to Login")
           ],
         ),

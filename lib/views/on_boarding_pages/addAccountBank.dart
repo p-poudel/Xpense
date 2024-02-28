@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:xpense/constants/color_const.dart';
 
@@ -22,8 +23,8 @@ class _addAccountBankState extends State<addAccountBank> {
         backgroundColor: gradientColor1,
         appBar: AppBar(
           backgroundColor: gradientColor1,
-          leading: const Icon(Icons.arrow_back, color: Colors.white),
-          title: const Center(
+          leading: Icon(Icons.arrow_back, color: Colors.white),
+          title: Center(
               child: Text(
             "Add new Wallet",
             style: TextStyle(color: Colors.white),
@@ -31,7 +32,7 @@ class _addAccountBankState extends State<addAccountBank> {
         ),
         body: Stack(
           children: [
-            const Column(
+            Column(
               children: [
                 SizedBox(
                   height: 213,
@@ -47,28 +48,28 @@ class _addAccountBankState extends State<addAccountBank> {
               ],
             ),
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30)),
                 color: Colors.white,
               ),
-              margin: const EdgeInsets.only(top: 324),
+              margin: EdgeInsets.only(top: 324),
               height: 436,
               width: double.infinity,
               child: Column(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 52,
                   ),
-                  const SizedBox(
+                  Container(
                     width: 380,
                     child: TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(), hintText: 'Chase'),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 22,
                   ),
                   DropdownButton(
@@ -78,15 +79,14 @@ class _addAccountBankState extends State<addAccountBank> {
                     menuMaxHeight: 350,
                     items: [
                       const DropdownMenuItem(
-                          value: "",
                           child: Text(
                             "Bank",
-                          )),
+                          ),
+                          value: ""),
                       ...dropDownListData.map<DropdownMenuItem<String>>((e) {
                         return DropdownMenuItem(
-                            value: e['value'],
-                            child: Text(e['title']));
-                      }),
+                            child: Text(e['title']), value: e['value']);
+                      }).toList(),
                     ],
                     onChanged: (newValue) {
                       setState(
@@ -97,8 +97,8 @@ class _addAccountBankState extends State<addAccountBank> {
                       );
                     },
                   ),
-                  const SizedBox(height: 206),
-                  SizedBox(
+                  SizedBox(height: 206),
+                  Container(
                       width: double.infinity,
                       height: 56,
                       child: ElevatedButton(
@@ -108,8 +108,8 @@ class _addAccountBankState extends State<addAccountBank> {
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12))),
                               backgroundColor:
-                                  const MaterialStatePropertyAll(gradientColor1)),
-                          child: const Text(
+                                  MaterialStatePropertyAll(gradientColor1)),
+                          child: Text(
                             "Continue",
                             style: TextStyle(color: Colors.white),
                           ))),

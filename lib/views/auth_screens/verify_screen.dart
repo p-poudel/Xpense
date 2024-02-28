@@ -5,7 +5,7 @@ import 'package:xpense/reusuable/custom_codefield.dart';
 import 'package:xpense/views/auth_screens/login_screen.dart';
 
 class VerifyScreen extends StatefulWidget {
-  const VerifyScreen({super.key, required this.email});
+  VerifyScreen({super.key, required this.email});
   final String email;
 
   @override
