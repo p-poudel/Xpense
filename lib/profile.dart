@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:xpense/theme.dart';
+import 'package:xpense/AccountPage.dart';
 
 class myProfile extends StatefulWidget {
   const myProfile({Key? key}) : super(key: key);
@@ -57,11 +61,12 @@ class _myProfileState extends State<myProfile> {
 
   @override
   Widget build(BuildContext context) {
+    var isDarkThemeEnabled = false;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffF6F6F6),
+        backgroundColor: isDarkThemeEnabled ? Colors.black : Color(0xffF6F6F6),
       ),
-      backgroundColor: Color(0xffF6F6F6),
+      backgroundColor: isDarkThemeEnabled ? Colors.black : Color(0xffF6F6F6),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,8 +155,48 @@ class _myProfileState extends State<myProfile> {
                       Color(0xff7F3DFF), SettingPage()),
                   option("Export Name", Icons.upload, Color(0xffEEE5FF),
                       Color(0xff7F3DFF), ExportPage()),
-                  option("Log Out", Icons.logout, Color(0xffFFE2E4),
-                      Color(0xffFD3C4A), LogoutPage())
+                  GestureDetector(
+                    onTap: () {
+                      _showLogoutDialog(context);
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 52,
+                                width: 52,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffFFE2E4),
+                                  borderRadius: BorderRadius.circular(7),
+                                ),
+                                child: Icon(Icons.logout,
+                                    color: Color(0xffFD3C4A)),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Log Out",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                ),
+                              )
+                            ],
+                          ),
+                          const Divider(
+                            color: Colors.black,
+                            height: 10,
+                            thickness: 0.05,
+                            indent: 1,
+                            endIndent: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -162,31 +207,95 @@ class _myProfileState extends State<myProfile> {
   }
 }
 
-class AccountPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Account Page'),
-      ),
-      body: Center(
-        child: Text('Account Page'),
-      ),
-    );
-  }
-}
-
 class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Setting Page'),
-      ),
-      body: Center(
-        child: Text('Setting Page'),
-      ),
-    );
+        appBar: AppBar(
+          toolbarHeight: 89,
+          title: Padding(
+            padding: const EdgeInsets.all(70.0),
+            child: Text(
+              'Settings',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        body: Container(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => mytheme()));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        "Theme",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "Security",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "Notification",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "About",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      "Help",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ));
   }
 }
 
@@ -204,16 +313,45 @@ class ExportPage extends StatelessWidget {
   }
 }
 
-class LogoutPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Logout Page'),
-      ),
-      body: Center(
-        child: Text('Logout Page'),
-      ),
-    );
-  }
+void _showLogoutDialog(BuildContext context) {
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          color: Colors.transparent, // This makes the background transparent
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: Text('Confirm Logout', textAlign: TextAlign.center),
+                ),
+                ListTile(
+                  title: Text('Are you sure you want to logout?'),
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Dismiss the bottom sheet
+                      },
+                      child: Text('Cancel'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Perform logout action here
+
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Logout'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      });
 }
